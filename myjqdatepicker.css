@@ -1,0 +1,134 @@
+#dp_holder
+{
+	position: relative;
+}
+#dp_wrapper
+{
+	position: absolute;
+	top:25px;
+	left:0px;
+	font-family: "lucida console";
+	font-size:14px;
+	cursor: default;
+	background: white;
+	width:360px;
+	border:1px #d6d6d6 solid;
+}
+
+#dp_body
+{
+}
+	#dp_date
+	{
+		width:260px;
+		float:left;
+	}
+
+	#dp_date .header
+	{
+		background: #f2f2f2;
+		height:20px;
+		box-shadow: inset 0px -3px 5px -5px black;
+		padding-top:4px;
+	}
+
+	#dp_date .header > div
+	{
+		float:left;
+		width:33%;
+		text-align: center;
+		height:20px;
+	}
+
+	#dp_date .middle div
+	{
+		text-align: center;
+		float:left;
+		padding:2px 0 2px 0;
+	}
+
+	#dp_middle_month div
+	{
+		width:25%;
+	}
+
+	#dp_middle_days div
+	{
+		width:12.5%;
+	}
+
+	#dp_middle_year
+	{
+		height:60px;
+		overflow: auto;
+	}
+	#dp_middle_year div
+	{
+		width:25%;
+	}
+#dp_date .header_selected
+{
+	color:blue;
+}
+.dp_date_selected
+{
+	background: #4e4e4e;
+	color: white;
+}
+.dp_days_nonday
+{
+	opacity: 0.4;
+}
+.dp_date_unselected:hover
+{
+	background: #d2d2d2;
+}
+
+#dp_time
+{
+	float:left;
+	width:100px;
+	height:120px;
+}
+
+#dp_time > div
+{
+	width:33%;
+	float:left;
+	height:100%;
+	overflow: auto;
+}
+
+#dp_time_ampm div
+{
+	height:50%;
+}
+
+.dp_time_selected
+{
+	background: #4e4e4e;
+	color:white;
+	vertical-align: middle;
+}
+
+#dp_footer
+{
+	height:27px;
+	background: #f2f2f2;
+	box-shadow: inset 0px 3px 5px -5px black;
+}
+#dp_footer input
+{
+	float:right;
+	letter-spacing: 2px;
+	margin:0px;
+	margin-top:5px;
+	border:0px;
+	color: #a6a6a6;
+	background: transparent;
+}
+
+#dp_footer input:hover
+{
+	color:#818181;
+}
