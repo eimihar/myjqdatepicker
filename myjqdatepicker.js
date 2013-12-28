@@ -1,3 +1,8 @@
+//## Author Description :
+//Name 	: Ahmad Rahimie
+//Site 	: Rosengate
+//github: http://github.com/eimihar
+
 $.fn.mydatepicker	= function(type)
 {
 	var type		= !type?1:type;//1 you get datepicker only, 2, timepicker only, 3 date and timepicker.
