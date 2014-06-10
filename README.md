@@ -27,4 +27,8 @@ ahha
 20
 
 oki doki
+<<<<<<< Updated upstream
 ihhi
+=======
+ahha
+>>>>>>> Stashed changes
