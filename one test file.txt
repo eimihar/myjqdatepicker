@@ -1,4 +1,0 @@
-This is one test file.
-elo
-ola
-this is it

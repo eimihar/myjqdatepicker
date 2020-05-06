@@ -3,8 +3,13 @@
 //Site 	: Rosengate
 //github: http://github.com/eimihar
 
-$.fn.mydatepicker	= function(type)
+$.fn.mydatepicker	= function(type, options)
 {
+    if (options && typeof(moment) === 'undefined')
+        throw new Error('momentjs is required');
+
+    options = options ? options : {};
+
 	var type		= !type?1:type;//1 you get datepicker only, 2, timepicker only, 3 date and timepicker.
 	var input		= this;
 
@@ -57,7 +62,11 @@ $.fn.mydatepicker	= function(type)
 	{
 		//prepare main value.
 		var liveInput		= $(input);
-		var datetime	= liveInput.val() == ""?false:liveInput.val().split(" ");
+
+        if ($(input).data('myjqdatepicker-value'))
+            var datetime = liveInput.val() == ""?false:$(input).data('myjqdatepicker-value').split(" ");
+        else 
+            var datetime	= liveInput.val() == ""?false:liveInput.val().split(" ");
 
 		Y			= datetime && dateCheck?Number(datetime[0].split("-")[0]):cDate.getFullYear();
 		m			= datetime && dateCheck?Number(datetime[0].split("-")[1])-1:cDate.getMonth();
@@ -352,7 +361,26 @@ $.fn.mydatepicker	= function(type)
 			var timeVal	= zeronate(H)+":"+zeronate(i);
 		}
 
-		$(input).val(type == 1?dateVal:(type == 2?timeVal:dateVal+" "+timeVal));
+        var value = type == 1 ? dateVal : (type == 2 ? timeVal : dateVal + " " + timeVal);
+
+        $(input).data('myjqdatepicker-value', value);
+
+        var val = value;
+
+        if (options.format) {
+            if (type == 1)
+                val = moment(value).format(options.format);
+            else if (type == 2)
+                val = moment(value, 'HH:mm').format(options.format);
+            else if (type == 3)
+                val = moment(value).format(options.format);
+        }
+
+		$(input).val(val);
+
+        if (options.callback) {
+            options.callback(value);
+        }
 	}
 
 	var closeDatepicker = function()
